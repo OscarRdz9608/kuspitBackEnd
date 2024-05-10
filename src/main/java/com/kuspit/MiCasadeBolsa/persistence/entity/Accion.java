@@ -11,14 +11,18 @@ public class Accion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "pk_accion")
     private Integer pkAccion;
+
     private String simbolo;
+
     @Column(name = "nombre_empresa")
     private String nombreEmpresa;
+
     @Column(name = "ultimo_precio")
     private double ultimoPrecio;
+
     private String volumen;
 
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "accion")
     private List<Transaccion> transacciones;
 
 
