@@ -1,6 +1,7 @@
 package com.kuspit.MiCasadeBolsa.persistence;
 
 import com.kuspit.MiCasadeBolsa.domain.User;
+import com.kuspit.MiCasadeBolsa.domain.dto.UserBalanceDTO;
 import com.kuspit.MiCasadeBolsa.domain.repository.UserRepository;
 import com.kuspit.MiCasadeBolsa.persistence.crud.UsuarioCrudRepository;
 import com.kuspit.MiCasadeBolsa.persistence.entity.Usuario;
@@ -43,6 +44,7 @@ public class UsuarioRepository implements UserRepository {
 
     @Override
     public Optional<User> findByEmailAndPassword(String email, String password){
+        System.out.println(email+password);
         return  usuarioCrudRepository.findByCorreoAndContrasenia(email, password).map(usuario -> mapper.toUser((Usuario) usuario));
     }
 
@@ -57,12 +59,10 @@ public class UsuarioRepository implements UserRepository {
         usuarioCrudRepository.deleteById(userId);
     }
 
-
-
-
-
-
-
+    @Override
+    public Optional<UserBalanceDTO> findIdUsuarioAndSaldoByUsuario(String idUsuario) {
+        return Optional.empty();
+    }
 
 
 }

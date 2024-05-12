@@ -27,6 +27,7 @@ public interface UserMapper {
     List<User> toUsers(List<Usuario> usuarios);
 
     @InheritInverseConfiguration
+    @Mapping(target = "transacciones", ignore = true)
 
     Usuario toUsuario (User user);
 

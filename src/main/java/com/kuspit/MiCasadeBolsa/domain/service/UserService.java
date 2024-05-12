@@ -1,7 +1,9 @@
 package com.kuspit.MiCasadeBolsa.domain.service;
 
 import com.kuspit.MiCasadeBolsa.domain.User;
+import com.kuspit.MiCasadeBolsa.domain.dto.UserBalanceDTO;
 import com.kuspit.MiCasadeBolsa.domain.repository.UserRepository;
+import com.kuspit.MiCasadeBolsa.persistence.crud.UsuarioCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,8 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private UsuarioCrudRepository usuarioCrudRepository;
 
     public List<User> getAll(){
         return userRepository.getAll();
@@ -43,6 +47,10 @@ public class UserService {
             userRepository.delete(userId);
         return true;
     }).orElse(false);
+    }
+
+    public Optional<UserBalanceDTO> getIdUsuarioAndSaldoByUsuario(String userId) {
+        return usuarioCrudRepository.findIdUsuarioAndSaldoByIdUsuario(userId);
     }
 
 
