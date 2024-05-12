@@ -9,24 +9,24 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pk_usuario")
-    private Integer pkUsuario;
+    @Column(name = "id_usuario")
+    private String idUsuario;
     private String nombre;
     private String telefono;
     private String correo;
-    private String contraseña;
+    private String contrasenia;
     private Double saldo;
 
     ////RELACIONES
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-    private List<Transaccion> transacciones;
+        private List<Transaccion> transacciones;
 
-    public int getPkUsuario() {
-        return pkUsuario;
+    public String getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setPkUsuario(int pkUsuario) {
-        this.pkUsuario = pkUsuario;
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNombre() {
@@ -53,12 +53,12 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
 
     public Double getSaldo() {
@@ -69,4 +69,11 @@ public class Usuario {
         this.saldo = saldo;
     }
 
+    public List<Transaccion> getTransacciones() {
+        return transacciones;
+    }
+
+    public void setTransacciones(List<Transaccion> transacciones) {
+        this.transacciones = transacciones;
+    }
 }

@@ -9,8 +9,8 @@ public class Accion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pk_accion")
-    private Integer pkAccion;
+    @Column(name = "id_accion")
+    private Integer idAccion;
 
     private String simbolo;
 
@@ -25,13 +25,12 @@ public class Accion {
     @OneToMany(mappedBy = "accion")
     private List<Transaccion> transacciones;
 
-
-    public int getPkAccion() {
-        return pkAccion;
+    public Integer getIdAccion() {
+        return idAccion;
     }
 
-    public void setPkAccion(int pkAccion) {
-        this.pkAccion = pkAccion;
+    public void setIdAccion(Integer idAccion) {
+        this.idAccion = idAccion;
     }
 
     public String getSimbolo() {
@@ -64,5 +63,13 @@ public class Accion {
 
     public void setVolumen(String volumen) {
         this.volumen = volumen;
+    }
+
+    public List<Transaccion> getTransacciones() {
+        return transacciones;
+    }
+
+    public void setTransacciones(List<Transaccion> transacciones) {
+        this.transacciones = transacciones;
     }
 }

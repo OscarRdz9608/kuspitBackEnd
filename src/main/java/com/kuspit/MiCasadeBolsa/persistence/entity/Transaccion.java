@@ -11,17 +11,16 @@ public class Transaccion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "pk_transaccion")
-    private Integer pkTransaccion;
+    @Column(name = "id_transaccion")
+    private Integer idTransaccion;
 
     @ManyToOne
-    @JoinColumn(name = "fk_usuario")
+    @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
     @ManyToOne
-    @JoinColumn(name = "fk_accion")
+    @JoinColumn(name = "id_accion")
     private Accion accion; // La transacción está asociada con una Accion específica
-
 
 
     @Column(name = "fecha_transaccion")
@@ -29,12 +28,28 @@ public class Transaccion {
     @Column(name = "tipo_transaccion")
     private String tipoTransaccion;
 
-    public Integer getPkTransaccion() {
-        return pkTransaccion;
+    public Integer getIdTransaccion() {
+        return idTransaccion;
     }
 
-    public void setPkTransaccion(Integer pkTransaccion) {
-        this.pkTransaccion = pkTransaccion;
+    public void setIdTransaccion(Integer idTransaccion) {
+        this.idTransaccion = idTransaccion;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Accion getAccion() {
+        return accion;
+    }
+
+    public void setAccion(Accion accion) {
+        this.accion = accion;
     }
 
     public LocalDateTime getFechaTransaccion() {
