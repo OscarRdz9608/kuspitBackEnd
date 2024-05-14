@@ -11,7 +11,7 @@ import java.util.Optional;
 
 public interface AccionCrudRepository extends CrudRepository<Accion, Integer> {
     @Query(value = "SELECT * FROM acciones WHERE id_accion=?", nativeQuery = true)
-    Optional<Accion> getByIdAccion(int idAccion);
+    Optional<Accion> getByIdAccion(@Param("id_accion")int idAccion);
 
     Optional<Accion> findByIdAccion(int idAccion);
 

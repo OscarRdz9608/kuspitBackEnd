@@ -4,6 +4,7 @@ import com.kuspit.MiCasadeBolsa.domain.dto.UserBalanceDTO;
 import com.kuspit.MiCasadeBolsa.persistence.entity.Usuario;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +12,7 @@ import java.util.Optional;
 public interface UsuarioCrudRepository extends CrudRepository<Usuario, String> {
 
     @Query(value = "SELECT * FROM usuarios WHERE id_usuario=?", nativeQuery = true)
-    Optional<Usuario> getByIdUsuario(String idUsuario);
+    Optional<Usuario> getByIdUsuario(@Param("id_usuario") String idUsuario);
 
     Optional<Usuario> findByIdUsuario(String idUsuario);
 

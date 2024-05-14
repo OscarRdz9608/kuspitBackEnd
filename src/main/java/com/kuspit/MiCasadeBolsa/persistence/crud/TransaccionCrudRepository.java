@@ -14,7 +14,7 @@ import java.util.Optional;
 public interface TransaccionCrudRepository extends CrudRepository<Transaccion, Integer> {
 
     @Query(value = "SELECT * FROM transacciones WHERE id_transaccion=:id_transaccion", nativeQuery = true)
-    Optional<Transaccion> getByIdTransaccion(int idTransaccion);
+    Optional<Transaccion> getByIdTransaccion(@Param("id_transaccion") int idTransaccion);
 
     Optional<Transaccion> findByIdTransaccion(int idTransaccion);
 
