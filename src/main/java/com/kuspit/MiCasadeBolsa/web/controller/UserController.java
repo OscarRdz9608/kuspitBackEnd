@@ -59,4 +59,11 @@ public class UserController {
 
     }
 
+    @GetMapping("/{userId}")
+    public ResponseEntity<User> getUser(@PathVariable("userId") String userId){
+        return userService.getUser(userId).map(
+                        user -> new ResponseEntity<>(user, HttpStatus.OK))
+                .orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
 }

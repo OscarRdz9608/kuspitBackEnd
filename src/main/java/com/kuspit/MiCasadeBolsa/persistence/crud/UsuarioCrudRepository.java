@@ -25,5 +25,4 @@ public interface UsuarioCrudRepository extends CrudRepository<Usuario, String> {
 
     Optional<UserBalanceDTO> findIdUsuarioAndSaldoByIdUsuario(String idUsuario);
 
-
 }

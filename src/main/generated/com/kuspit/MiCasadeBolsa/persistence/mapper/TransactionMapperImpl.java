@@ -2,13 +2,15 @@ package com.kuspit.MiCasadeBolsa.persistence.mapper;
 
 import com.kuspit.MiCasadeBolsa.domain.Transaction;
 import com.kuspit.MiCasadeBolsa.persistence.entity.Transaccion;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.processing.Generated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-05-12T13:17:53-0600",
+    date = "2024-05-13T17:06:02-0600",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 11.0.22 (Eclipse Adoptium)"
 )
 @Component
@@ -36,6 +38,20 @@ public class TransactionMapperImpl implements TransactionMapper {
         transaction.setTransactionType( transaccion.getTipoTransaccion() );
 
         return transaction;
+    }
+
+    @Override
+    public List<Transaction> toTransactions(List<Transaccion> transacciones) {
+        if ( transacciones == null ) {
+            return null;
+        }
+
+        List<Transaction> list = new ArrayList<Transaction>( transacciones.size() );
+        for ( Transaccion transaccion : transacciones ) {
+            list.add( toTransaction( transaccion ) );
+        }
+
+        return list;
     }
 
     @Override

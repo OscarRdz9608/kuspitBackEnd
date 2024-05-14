@@ -8,6 +8,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring", uses = {UserMapper.class, ActionMapper.class})
 public interface TransactionMapper {
 
@@ -22,6 +24,7 @@ public interface TransactionMapper {
     )
     Transaction toTransaction(Transaccion transaccion);
 
+    List<Transaction> toTransactions (List<Transaccion> transacciones);
 
     @InheritInverseConfiguration
     //@Mapping(target = "transacciones", ignore = true)

@@ -22,7 +22,7 @@ public interface ActionMapper {
             }
     )
     Action toAction(Accion accion);
-
+    List<Action> toActions (List<Accion> acciones);
 
     @InheritInverseConfiguration
     @Mapping(target = "transacciones", ignore = true)

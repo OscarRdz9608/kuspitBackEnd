@@ -2,12 +2,14 @@ package com.kuspit.MiCasadeBolsa.persistence.mapper;
 
 import com.kuspit.MiCasadeBolsa.domain.Action;
 import com.kuspit.MiCasadeBolsa.persistence.entity.Accion;
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-05-12T13:17:53-0600",
+    date = "2024-05-13T01:08:37-0600",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 11.0.22 (Eclipse Adoptium)"
 )
 @Component
@@ -30,6 +32,20 @@ public class ActionMapperImpl implements ActionMapper {
         action.setVolume( accion.getVolumen() );
 
         return action;
+    }
+
+    @Override
+    public List<Action> toActions(List<Accion> acciones) {
+        if ( acciones == null ) {
+            return null;
+        }
+
+        List<Action> list = new ArrayList<Action>( acciones.size() );
+        for ( Accion accion : acciones ) {
+            list.add( toAction( accion ) );
+        }
+
+        return list;
     }
 
     @Override
