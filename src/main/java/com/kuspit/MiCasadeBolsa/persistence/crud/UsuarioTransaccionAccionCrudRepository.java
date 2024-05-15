@@ -22,5 +22,8 @@ public interface UsuarioTransaccionAccionCrudRepository extends CrudRepository<U
     @Query(value = "select * from usuarios_transacciones_acciones where id_usuario = :userId", nativeQuery = true)
     List<UsuarioTransaccionAccion> findByUserId(@Param("userId") String userId);
 
+    //@Query("insert into transacciones values ",)
+
+
 
 }

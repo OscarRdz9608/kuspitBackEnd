@@ -20,4 +20,7 @@ public interface UserTransactionActionRepository {
     List<UserTransactionAction> getAvailable(int UserTransactionActionId);
 
     List<UserTransactionAction> findByUserId(String userId);
+
+
+
 }

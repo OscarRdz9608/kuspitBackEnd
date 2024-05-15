@@ -1,6 +1,8 @@
 package com.kuspit.MiCasadeBolsa.persistence.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -14,11 +16,13 @@ public class Transaccion {
     @Column(name = "id_transaccion")
     private Integer idTransaccion;
 
-    @ManyToOne
-    @JoinColumn(name = "id_usuario")
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_usuario" )
     private Usuario usuario;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_accion")
     private Accion accion; // La transacción está asociada con una Accion específica
 

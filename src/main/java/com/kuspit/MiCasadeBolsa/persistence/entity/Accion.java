@@ -1,5 +1,7 @@
 package com.kuspit.MiCasadeBolsa.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -22,6 +24,7 @@ public class Accion {
 
     private String volumen;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "accion")
     private List<Transaccion> transacciones;
 

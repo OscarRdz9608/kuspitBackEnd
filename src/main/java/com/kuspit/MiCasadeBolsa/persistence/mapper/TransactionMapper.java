@@ -27,6 +27,11 @@ public interface TransactionMapper {
     List<Transaction> toTransactions (List<Transaccion> transacciones);
 
     @InheritInverseConfiguration
+    @Mappings(
+            {//@Mapping(target = "usuario", ignore = true),
+             //@Mapping(target = "accion", ignore = true)
+            }
+    )
     //@Mapping(target = "transacciones", ignore = true)
     Transaccion toTransaccion (Transaction transaction);
 

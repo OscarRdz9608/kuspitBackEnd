@@ -1,5 +1,7 @@
 package com.kuspit.MiCasadeBolsa.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -18,6 +20,7 @@ public class Usuario {
     private Double saldo;
 
     ////RELACIONES
+    @JsonIgnore
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
         private List<Transaccion> transacciones;
 

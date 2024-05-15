@@ -1,10 +1,7 @@
 package com.kuspit.MiCasadeBolsa.persistence.entity;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -12,6 +9,7 @@ import java.time.LocalDateTime;
 public class UsuarioTransaccionAccion {
 
     @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "id_usuario_transaccion_accion")
     private String idUsuarioTransaccionAccion;
     @Column(name = "id_usuario")
